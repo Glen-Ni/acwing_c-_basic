@@ -141,3 +141,79 @@
   		return 0;
   }
   ```
+
+- 663. 简单排序
+	```c++
+	#include<cstdio>
+	#include<iostream>
+	using namespace std;
+	int main()
+	{
+			int a,b,c;
+			cin>>a>>b>>c;
+			int x,y,z;
+			x=max(a,max(b,c));
+			y=min(a,min(b,c));
+			z=a+b+c-x-y;
+			cout<<y<<endl;
+			cout<<z<<endl;
+			cout<<x<<endl;
+			cout<<endl;
+			cout<<a<<endl;
+			cout<<b<<endl;
+			cout<<c<<endl;
+			return 0;
+	}
+	```
+
+- 658. 一元二次方程公式
+
+	无聊
+	```c++
+	#include <cstdio>
+	#include <math.h>
+
+	using namespace std;
+
+	int main()
+	{
+			double a,b,c,d;
+			scanf("%lf%lf%lf", &a, &b, &c);
+			d = b * b - 4 * a * c;
+			if(d < 0 || a==0){
+					printf("Impossivel calcular");
+					return 0;
+			}
+			printf("R1 = %.5lf\n", (-b+sqrt(d))/2/a);
+			printf("R2 = %.5lf\n", (-b-sqrt(d))/2/a);
+			
+			return 0;
+	}
+	```
+
+- 661. 平均数3
+
+	不值得花时间写
+	```c++
+	#include<bits/stdc++.h>
+	using namespace std;
+
+	int main()
+	{
+			double a,b,c,d,n,m,x;
+			cin>>a>>b>>c>>d;
+			m=(a*2.0+b*3.0+c*4.0+d)/10.0;
+			cout<<fixed<<setprecision(1)<<"Media: "<<m<<endl;
+			if(m>=7.0)cout<<"Aluno aprovado."<<endl;
+			if(m<5.0)cout<<"Aluno reprovado."<<endl;
+			if(m>=5.0&&m<7.0){
+					cout<<"Aluno em exame."<<endl;
+					cin>>n;
+					cout<<"Nota do exame: "<<n<<endl;
+					x=(m+n)/2;
+					if(x>=5.0)cout<<"Aluno aprovado."<<endl;
+					if(x<5.0)cout<<"Aluno reprovado."<<endl;
+					cout<<fixed<<setprecision(1)<<"Media final: "<<x<<endl;
+			}
+	}
+	```
