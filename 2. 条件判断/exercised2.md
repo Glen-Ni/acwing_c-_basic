@@ -58,45 +58,86 @@
   还挺麻烦，注意不能组成三角形就直接 return
   可以用 `swap(a, b)`直接交换 a 和 b...
 
-```c++
-#include <cstdio>
+  ```c++
+  #include <cstdio>
 
-using namespace std;
+  using namespace std;
 
-int main()
-{
-    double a,b,c;
-    scanf("%lf %lf %lf", &a, &b, &c);
-    double max,s1,s2;
+  int main()
+  {
+      double a,b,c;
+      scanf("%lf %lf %lf", &a, &b, &c);
+      double max,s1,s2;
 
-    if(a >= b )
-    {
-        max = a;
-        s1 = b;
-    }
-    else {
-        max = b;
-        s1 = a;
-    }
-    if (c >= max)
-    {
-        s2 = max;
-        max = c;
-    } else {
-        s2 = c;
-    }
+      if(a >= b )
+      {
+          max = a;
+          s1 = b;
+      }
+      else {
+          max = b;
+          s1 = a;
+      }
+      if (c >= max)
+      {
+          s2 = max;
+          max = c;
+      } else {
+          s2 = c;
+      }
 
-    if (max >= s1 + s2 )
-    {
-        printf("NAO FORMA TRIANGULO\n");
-        return 0;
-    }
-    if (max * max == (s1 * s1 + s2 * s2) ) printf("TRIANGULO RETANGULO\n");
-    if (max * max > (s1 * s1 + s2 * s2) ) printf("TRIANGULO OBTUSANGULO\n");
-    if (max * max < (s1 * s1 + s2 * s2) ) printf("TRIANGULO ACUTANGULO\n");
-    if (max == s1 && s1 == s2 ) printf("TRIANGULO EQUILATERO\n");
-    else if (max == s1 || s1 == s2 || max == s2) printf("TRIANGULO ISOSCELES");
+      if (max >= s1 + s2 )
+      {
+          printf("NAO FORMA TRIANGULO\n");
+          return 0;
+      }
+      if (max * max == (s1 * s1 + s2 * s2) ) printf("TRIANGULO RETANGULO\n");
+      if (max * max > (s1 * s1 + s2 * s2) ) printf("TRIANGULO OBTUSANGULO\n");
+      if (max * max < (s1 * s1 + s2 * s2) ) printf("TRIANGULO ACUTANGULO\n");
+      if (max == s1 && s1 == s2 ) printf("TRIANGULO EQUILATERO\n");
+      else if (max == s1 || s1 == s2 || max == s2) printf("TRIANGULO ISOSCELES");
 
-    return 0;
-}
-```
+      return 0;
+  }
+  ```
+
+- 668. 游戏时间 2
+
+  我这个方法有点巧妙的哦，不愧是我
+
+  ```c++
+  #include <cstdio>
+
+  using namespace std;
+
+  int main() {
+      int h1,s1,h2,s2,t1,t2;
+      scanf("%d%d%d%d", &h1,&s1,&h2,&s2);
+      t1 = h1 * 60 + s1;
+      t2 = h2 * 60 + s2;
+      if (t1 >= t2){
+          t2 += 60 * 24;
+      }
+      printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)", (t2 - t1) / 60, (t2 - t1) % 60);
+
+      return 0;
+  }
+  ```
+
+- 672. 税
+
+  ```C++
+  #include<cstdio>
+
+  using namespace std;
+
+  int main(){
+  		double a;
+  		scanf("%lf", &a);
+  		if(a>0&&a<=2000.0) printf("Isento");
+  		else if(a>2000.0&&a<=3000) printf("R$ %.2lf",(a-2000)*0.08);
+  		else if(a>3000.0&&a<=4500) printf("R$ %.2lf",(a-3000)*0.18+80);
+  		else if(a>4500.0) printf("R$ %.2lf",(a-4500)*0.28+350);
+  		return 0;
+  }
+  ```
